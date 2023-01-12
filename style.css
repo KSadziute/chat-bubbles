@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 630px;
+    margin: auto;
+}
+
+section{
+    display: flex;
+    align-items: center;
+    /* justify-content: end; */
+    gap: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* font-size: 1.1em; */
+    line-height: 25px;
+    margin: 30px;
+}
+
+section img{
+    height: 100px;
+    width: 100px;
+    border-radius: 100px;
+    object-fit: cover;
+    object-position: top;
+}
+
+
+section p::before{
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    left: -25px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 15px solid transparent;
+    border-right-color: lightgrey;
+}
+
+section p{
+    max-width: 450px;
+    background: lightgrey;
+    padding: 20px;
+    border-radius: 20px 20px 20px 0;
+    position: relative;
+}
+
+section:nth-of-type(even){
+    flex-direction: row-reverse;
+    
+}
+
+section:nth-of-type(even) img{
+    object-position: center;
+}
+
+section:nth-of-type(even) p{
+    background-color: green;
+    border-radius: 20px 20px 0 20px;
+    color: white;
+}
+
+section:nth-of-type(even) p::before{
+    border: 20px solid transparent;
+    border-left-color: green;
+    left: 98%;
+}
+
+@media (max-width: 630px){
+    section p{
+        width: 70%;
+    }
+}
+
+/* interactions */
+
+section{
+    transition: 0.3s;
+    cursor: url(hand-regular.svg), auto;
+}
+
+section:hover{
+    transform: translateX(-20px);
+}
